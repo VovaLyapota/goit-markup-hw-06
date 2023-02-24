@@ -10,6 +10,7 @@
   --footer-hover-links: #31d0aa;
   --modal-bg-color: #fcfcfc;
   --modal-btn-color: #000000;
+  --checkbox-text-color: #757575;
 }
 
 body {
@@ -217,7 +218,7 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  background: var(--accent-text-color);
+  background-color: var(--accent-text-color);
   border-color: transparent;
   border-radius: 4px;
   cursor: pointer;
@@ -228,8 +229,6 @@ img {
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--button-accent-color);
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -267,9 +266,10 @@ img {
   transform: translate(-50%, -50%) scale(1);
 
   display: flex;
+  flex-direction: column;
   min-height: 576px;
   min-width: 408px;
-  padding: 24px;
+  padding: 72px 24px 24px 24px;
   background-color: var(--modal-bg-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -280,6 +280,9 @@ img {
 }
 
 .modal-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,6 +315,157 @@ img {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal .title {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.modal .modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 360px;
+}
+
+.modal .form-item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--title-text-color);
+}
+
+.modal .form-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.modal .form-item.textarea {
+  margin-bottom: 16px;
+  width: 360px;
+}
+.modal .form-item.checkbox {
+  margin-bottom: 24px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal-input:focus + .icon-thumb {
+  color: var(--accent-text-color);
+}
+
+.modal-form .modal-icon {
+  position: absolute;
+  top: 29px;
+  left: 16px;
+
+  --icon-color: currentColor;
+  fill: var(--icon-color);
+}
+
+.modal .modal-input {
+  height: 40px;
+  width: 360px;
+  padding-left: 38px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal .modal-input:focus {
+  outline: none;
+  border: 1px solid var(--accent-text-color);
+}
+
+.modal .modal-input.textarea {
+  resize: none;
+  padding: 8px 16px;
+  height: 120px;
+}
+
+.modal-form .form-text.first,
+.modal-form .form-text.last {
+  letter-spacing: 0.04em;
+}
+
+.modal-form .form-text {
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  color: var(--clients-color);
+}
+
+.modal-form .form-text:last-child {
+  margin: 0;
+}
+
+.modal-form .textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form .checkbox {
+  color: var(--checkbox-text-color);
+}
+
+.orig-checkbox {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.modal-form .custom-checkbox {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid var(--title-text-color);
+  border-radius: 2px;
+
+  transition: background-image 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.orig-checkbox:checked + .custom-checkbox {
+  background-image: url(../images/custom-checkbox.svg);
+  background-color: var(--button-accent-color);
+  background-size: contain;
+  border-color: var(--button-accent-color);
+}
+
+.modal-form .modal-submit {
+  width: 169px;
+  padding: 16px 32px;
+  color: var(--primary-white-color);
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  background-color: var(--accent-text-color);
+  border-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-submit:hover,
+.modal-submit:focus {
+  background-color: var(--button-accent-color);
 }
 
 .invisible-title {
@@ -545,6 +699,10 @@ img {
   margin-right: 120px;
 }
 
+.footer .media-box {
+  margin-right: 80px;
+}
+
 .media-box .title {
   margin-bottom: 16px;
   font-weight: 500;
@@ -576,6 +734,74 @@ img {
   background-color: var(--footer-hover-links);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.footer-form .primary-text {
+  font-weight: 500;
+  color: var(--primary-white-color);
+  margin-bottom: 16px;
+}
+
+.footer-form .mail {
+  display: flex;
+  flex-direction: column;
+  min-width: 264px;
+}
+
+.footer-form .input-mail {
+  max-width: 264px;
+  margin-right: 24px;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form .input-mail:focus {
+  outline: none;
+  border: 1px solid var(--accent-text-color);
+}
+
+.footer-form .mail-submit {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+
+  color: var(--primary-white-color);
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  background: var(--accent-text-color);
+  border: 0px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form .mail-submit:hover,
+.footer-form .mail-submit:focus {
+  background-color: var(--button-accent-color);
+}
+
+.footer-form .submit-text {
+  margin-right: 16px;
+  padding: 0;
 }
 
 .portfolio-section {
@@ -631,12 +857,6 @@ img {
   border-color: var(--button-accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  /* border-radius: 4px; */
-
-  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .filter-button.current {
