@@ -359,7 +359,7 @@ img {
 
 .modal-form .modal-icon {
   position: absolute;
-  top: 29px;
+  top: 26px;
   left: 16px;
 
   --icon-color: currentColor;
@@ -384,6 +384,10 @@ img {
   resize: none;
   padding: 8px 16px;
   height: 120px;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
 }
 
 .modal-form .form-text.first,
@@ -606,7 +610,7 @@ img {
 
 .social-links.list {
   display: flex;
-  gap: 24px;
+  gap: 16px;
 }
 
 .social-links.list .social-link {
@@ -760,6 +764,8 @@ img {
   padding-left: 16px;
   padding-top: 10px;
   padding-bottom: 10px;
+
+  color: var(--primary-white-color);
 
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
